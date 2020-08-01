@@ -120,7 +120,7 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     // update the data once uplaoded
-                    // modified now the gridview will not giving flickering even samaal lags
+                    // modified now the gridview will not giving flickering even small lags
                     val mNewArrayList = ArrayList<String>()
                     mNewArrayList.addAll(mListImages)
                     mAdapterImages.submitList(mNewArrayList)
