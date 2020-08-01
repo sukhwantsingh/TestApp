@@ -42,12 +42,12 @@ class GallaryViewModel : ViewModel() {
                 .add(user)
                 .addOnSuccessListener { docref ->
                     Log.wtf("Gallary", "added successfully ${docref.id}")
-                    mResponse.value = "Added successfully"
+                 //   mResponse.value = "Added successfully"
 
                 }
                 .addOnFailureListener { e ->
                     Log.wtf("Gallary", "Error in uploading", e)
-                    mResponse.value = "Error in uploading: $e"
+                 //   mResponse.value = "Error in uploading: $e"
                 }
 
         }
@@ -71,7 +71,7 @@ class GallaryViewModel : ViewModel() {
 
                 })?.addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        mResponse.value = ""
+                        mResponse.value = "Uploaded successfully"
                         val downloadUri = task.result
                         updateImageUrlToFirestore(downloadUri.toString())
 

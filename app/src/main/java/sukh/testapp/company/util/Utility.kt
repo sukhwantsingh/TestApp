@@ -64,10 +64,10 @@ fun ImageView.loadImageFromServer(mUrl: String? = "") {
 
 fun Activity.centerToast(toast_string: String) {
     val toast: Toast = Toast.makeText(this, toast_string, Toast.LENGTH_SHORT)
-    toast.setGravity(Gravity.CENTER, 0, 0)
-    val view: View = toast.view
-    view.setBackgroundColor(resources.getColor(R.color.hint_text_clr))
-    val text = view.findViewById(android.R.id.message) as TextView
+  //  toast.setGravity(Gravity.CENTER, 0, 0)
+   // val view: View = toast.view
+  //  view.setBackgroundColor(resources.getColor(R.color.hint_text_clr))
+   // val text = view.findViewById(android.R.id.message) as TextView
 
     toast.show()
 }
