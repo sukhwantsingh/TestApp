@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     private var filePath: Uri? = null
     val mListImages = arrayListOf<String>()
 
-    val mAdapterImages: AdapterGallary = AdapterGallary(this, mListImages)
+    private val mAdapterImages: AdapterGallary = AdapterGallary(this)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,12 +57,6 @@ class MainActivity : AppCompatActivity() {
         })
 
     }
-
-
-    private fun setupGallary() {
-        mAdapterImages.notifyDataSetChanged()
-    }
-
 
     private fun onClicks() {
         btn_upload.setOnClickListener {
@@ -118,7 +112,7 @@ class MainActivity : AppCompatActivity() {
                         return@addSnapshotListener
                     }
 
-                    documents?.documents?.forEach {
+                    documents?.documents?.map {
                         Log.wtf("ft", "${it.get("imageUrl")}")
                         if (!mListImages.contains("${it.get("imageUrl")}")) {
                             mListImages.add("${it.get("imageUrl")}")
@@ -126,8 +120,10 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     // update the data once uplaoded
-                    setupGallary()
-
+                    // modified now the gridview will not giving flickering even samaal lags
+                    val mNewArrayList = ArrayList<String>()
+                    mNewArrayList.addAll(mListImages)
+                    mAdapterImages.submitList(mNewArrayList)
                 }
         }
 
