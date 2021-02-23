@@ -16,8 +16,9 @@ class LoginScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_screen)
-        initialisations()
-        onClicks()
+      //  initialisations()
+      //  onClicks()
+        navigate<MainActivity>()
     }
 
     private fun initialisations() {
